@@ -2,16 +2,16 @@ package main
 
 import (
 	"fmt"
+	"io"
 	"net/http"
 	"os"
-	"io"
 	"strings"
 )
 
 func main() {
 	for _, url := range os.Args[1:] {
-		if !strings.HasPrefix(url, "http://") {
-			url = "http://" + url
+		if !strings.HasPrefix(url, "https://") {
+			url = "https://" + url
 		}
 
 		resp, err := http.Get(url)
